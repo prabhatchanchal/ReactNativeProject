@@ -1,0 +1,10 @@
+# docker file to deploy this node app
+from node:alpine
+
+WORKDIR /usr/app
+
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
+CMD ["npx", "nodemon", "index"]
